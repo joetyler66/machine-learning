@@ -25,7 +25,7 @@ class Network: #(object):
       a = sigmoid(np.dot(w,a)+b)
     return a
 
-  def SGD(self, training_data, epochs, mini_batch_size, eta, test_data=None):
+  def SGD(self, training_data, epochs, mini_batch_size, rate, test_data=None):
     """trains the neural network with stochastic gradient descent
     testing not implemented yet"""
     n=len(training_data)
@@ -33,10 +33,13 @@ class Network: #(object):
       random.shuffle(training_data)
       mini_batches = [training_data[k:k+mini_batch_size] for k in range(0, n, mini_batch_size)]
       for mini_batch in mini_batches:
-        self.update_mini_batch(mini_batch, eta)
+        self.update_mini_batch(mini_batch, rate)
       print('Epoch {0} complete'.format(j))
     
+  def update_mini_batch(self, mini_batch, rate):
+    return 
 
+    
 
 #General functions used
 def sigmoid(z):
